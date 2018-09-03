@@ -1,0 +1,1002 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API for managing work definitions.",
+    "version" : "1.0.0",
+    "title" : "Definitions Management Work API",
+    "contact" : {
+      "email" : "mason.yarrick@bhp.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags" : [ {
+    "name" : "admins",
+    "description" : "Secured Admin-only calls"
+  }, {
+    "name" : "developers",
+    "description" : "Operations available to regular developers"
+  } ],
+  "paths" : {
+    "/workflowSpecificationNodeType/{id}" : {
+      "get" : {
+        "tags" : [ "developers" ],
+        "summary" : "gets workflow specification node types.",
+        "operationId" : "getWorkflowSpecificationNodeTypes",
+        "description" : "Gets workflows spec node types with specific IDs.\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "Workflow spec node ID.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "version",
+          "description" : "Work definition version to retrieve.",
+          "required" : false,
+          "type" : "number"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/WorkflowSpecificationNodeType"
+            }
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "admins" ],
+        "summary" : "deletes workflow specification node types.",
+        "operationId" : "deleteWorkflowSpecificationNodeTypes",
+        "description" : "Deletes workflow spec node types with specific IDs.\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "Workflow spec node type ID.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Deleted"
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "admins" ],
+        "summary" : "updates workflow specification node types.",
+        "operationId" : "updateWorkflowSpecificationNodeType",
+        "description" : "Updates workflow spec node types with specific IDs.\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "Workflow spec node type ID.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Updated"
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        }
+      }
+    },
+    "/workflowSpecificationNodeType" : {
+      "get" : {
+        "tags" : [ "developers" ],
+        "summary" : "searches for workflow spec node types",
+        "operationId" : "findWorkflowSpecNodeTypes",
+        "description" : "Searches for workflow spec node types with specific properties\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "id",
+          "description" : "the unique identifier to look for node types with.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "the number of results to return",
+          "required" : false,
+          "type" : "number"
+        }, {
+          "in" : "query",
+          "name" : "version",
+          "description" : "Work definition version to retrieve.",
+          "required" : false,
+          "type" : "number"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/WorkflowSpecificationNodeType"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad input parameter"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "admins" ],
+        "summary" : "creates workflow spec node types",
+        "operationId" : "createWorkflowSpecificationNodeType",
+        "description" : "Create new node types for workflow specifications.\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "workflowSpecificationNodeType",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/WorkflowSpecificationNodeType"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created"
+          },
+          "400" : {
+            "description" : "Bad input parameter"
+          }
+        }
+      }
+    },
+    "/workflowSpecificationConnectionType/{id}" : {
+      "get" : {
+        "tags" : [ "developers" ],
+        "summary" : "gets workflow spec connection types",
+        "operationId" : "getWorkflowSpecificationConnectionType",
+        "description" : "Gets workflow spec connection types by unique identifier.\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "Workflow Spec Connection Type ID",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "version",
+          "description" : "The version of the spec to retrieve",
+          "required" : false,
+          "type" : "number"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/WorkflowSpecificationConnectionType"
+            }
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "admins" ],
+        "summary" : "deletes workflow spec connection types",
+        "operationId" : "deleteWorkflowSpecificationConnectionType",
+        "description" : "Deletes workflow spec connection types with specific IDs\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "Workflow Spec Connection Type ID",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Deleted"
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "admins" ],
+        "summary" : "updates workflow spec connection types",
+        "operationId" : "updateWorkflowSpecificationConnectionType",
+        "description" : "Updates workflow spec connection types with specific IDs.\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "Workflow Spec Connection Type ID",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "workflowSpecificationConnectionType",
+          "description" : "The workflow spec connection type to update.",
+          "schema" : {
+            "$ref" : "#/definitions/WorkflowSpecificationConnectionType"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Updated"
+          },
+          "400" : {
+            "description" : "Bad input parameter"
+          }
+        }
+      }
+    },
+    "/workflowSpecificationConnectionType" : {
+      "get" : {
+        "tags" : [ "developers" ],
+        "summary" : "searches for workflow spec connection types.",
+        "operationId" : "findWorkflowSpecificationConnectionTypes",
+        "description" : "Searches for workflow specification connection types with specific properties.\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "id",
+          "description" : "the unique identifier for the connection type to retrieve",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "hierarchyScopeId",
+          "description" : "The hierarchy scope to retrieve material classes by",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "the number of results to return",
+          "required" : true,
+          "type" : "number"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/WorkflowSpecificationConnectionType"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad input parameter"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "admins" ],
+        "summary" : "creates workflow spec connection types",
+        "operationId" : "createWorkflowSpecificationConnectionType",
+        "description" : "Create new types of connections for workflow specifications\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "workflowSpecificationConnectionType",
+          "description" : "The connection type to create",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/WorkflowSpecificationConnectionType"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created"
+          },
+          "400" : {
+            "description" : "Bad input parameter"
+          }
+        }
+      }
+    },
+    "/workMaster/{id}" : {
+      "get" : {
+        "tags" : [ "developers" ],
+        "summary" : "gets work masters",
+        "operationId" : "getWorkMaster",
+        "description" : "Gets work masters with specific IDs\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "Work Master ID",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "version",
+          "description" : "Work definition version to retrieve.",
+          "required" : false,
+          "type" : "number"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/WorkMaster"
+            }
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "admins" ],
+        "summary" : "deletes work masters",
+        "operationId" : "deleteWorkMaster",
+        "description" : "Delete existing work masters from the system\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "Work Master ID",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Deleted"
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "admins" ],
+        "summary" : "updates work masters",
+        "operationId" : "updateWorkMaster",
+        "description" : "Update existing work masters in the system\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "Work Master ID",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "workMaster",
+          "description" : "The new state of the work master.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/WorkMaster"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Updated"
+          },
+          "400" : {
+            "description" : "Bad input parameter"
+          }
+        }
+      }
+    },
+    "/workMaster" : {
+      "get" : {
+        "tags" : [ "developers" ],
+        "summary" : "retrieves work masters",
+        "operationId" : "searchWorkMasters",
+        "description" : "By passing in appropriate options, search for available work masters in the system\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "id",
+          "description" : "the unique identifier of the work master to retrieve",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "hierarchyScopeId",
+          "description" : "The hierarchy scope to retrieve work masters by",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "the number of results to return",
+          "required" : false,
+          "type" : "number"
+        }, {
+          "in" : "query",
+          "name" : "version",
+          "description" : "Work definition version to retrieve.",
+          "required" : false,
+          "type" : "number"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/WorkMaster"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad input parameter"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "admins" ],
+        "summary" : "creates work masters",
+        "operationId" : "createWorkMaster",
+        "description" : "Creates new work masters in the system\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "workMaster",
+          "description" : "The Work Master to create",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/WorkMaster"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created"
+          },
+          "400" : {
+            "description" : "Bad input parameter"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "WorkMaster" : {
+      "type" : "object",
+      "required" : [ "id", "version", "workType" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "ER-EXT"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Eastern Ridge Extraction"
+        },
+        "version" : {
+          "type" : "number",
+          "example" : 1
+        },
+        "hierarchyScopeId" : {
+          "type" : "string",
+          "example" : "ER"
+        },
+        "workType" : {
+          "type" : "string",
+          "example" : "Production"
+        },
+        "duration" : {
+          "type" : "number",
+          "example" : 12
+        },
+        "durationUnitOfMeasure" : {
+          "type" : "string",
+          "example" : "Minutes"
+        },
+        "effectiveFrom" : {
+          "type" : "string",
+          "example" : "201808151000"
+        },
+        "effectiveTo" : {
+          "type" : "string",
+          "example" : "201808151000"
+        },
+        "parameters" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ParameterSpecification"
+          }
+        },
+        "personnel" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PersonnelSpecification"
+          }
+        },
+        "equipment" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/EquipmentSpecification"
+          }
+        },
+        "material" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/MaterialSpecification"
+          }
+        },
+        "workflow" : {
+          "type" : "object",
+          "required" : [ "id" ],
+          "properties" : {
+            "id" : {
+              "type" : "string",
+              "example" : "WF-EXT"
+            },
+            "description" : {
+              "type" : "string",
+              "example" : "Workflow Specification for Extraction"
+            },
+            "nodes" : {
+              "type" : "array",
+              "minItems" : 1,
+              "items" : {
+                "$ref" : "#/definitions/WorkflowSpecificationNode"
+              }
+            },
+            "connections" : {
+              "type" : "array",
+              "minItems" : 0,
+              "items" : {
+                "$ref" : "#/definitions/WorkflowSpecificationConnection"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ParameterSpecification" : {
+      "type" : "object",
+      "required" : [ "id", "value" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "Shift"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Which Shift this work can be performed in"
+        },
+        "value" : {
+          "type" : "string",
+          "example" : "Night"
+        },
+        "unitOfMeasure" : {
+          "type" : "string",
+          "example" : "Shift"
+        }
+      }
+    },
+    "PersonnelSpecification" : {
+      "type" : "object",
+      "required" : [ "personnelUse", "quantity", "unitOfMeasure" ],
+      "properties" : {
+        "personnelClassId" : {
+          "type" : "string",
+          "example" : "ER-MC"
+        },
+        "personId" : {
+          "type" : "string",
+          "example" : "2345234234"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Mine Controller"
+        },
+        "personnelUse" : {
+          "type" : "string",
+          "example" : "Controlling"
+        },
+        "quantity" : {
+          "type" : "number",
+          "example" : 1
+        },
+        "unitOfmeasure" : {
+          "type" : "string",
+          "example" : "Each"
+        },
+        "properties" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PersonnelSpecificationProperty"
+          }
+        }
+      }
+    },
+    "PersonnelSpecificationProperty" : {
+      "type" : "object",
+      "required" : [ "id", "value", "valueUnitOfMeasure", "quantity", "quantityUnitOfMeasure" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "PS-QUAL"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Qualification"
+        },
+        "value" : {
+          "type" : "string",
+          "example" : "Certified"
+        },
+        "valueUnitOfMeasure" : {
+          "type" : "string",
+          "example" : "{Studying,Certified}"
+        },
+        "quantity" : {
+          "type" : "number",
+          "example" : 2
+        },
+        "quantityUnitOfMeasure" : {
+          "type" : "string",
+          "example" : "Hours/Piece"
+        }
+      }
+    },
+    "EquipmentSpecification" : {
+      "type" : "object",
+      "required" : [ "equipmentUse", "quantity", "unitOfMeasure" ],
+      "properties" : {
+        "equipmentClassId" : {
+          "type" : "string",
+          "example" : "ER-9400"
+        },
+        "equipmentId" : {
+          "type" : "string",
+          "example" : "EX7015"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Excavation"
+        },
+        "equipmentUse" : {
+          "type" : "string",
+          "example" : "Excavating"
+        },
+        "quantity" : {
+          "type" : "number",
+          "example" : 1
+        },
+        "unitOfMeasure" : {
+          "type" : "string",
+          "example" : "Each"
+        },
+        "properties" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/EquipmentSpecificationProperty"
+          }
+        }
+      }
+    },
+    "EquipmentSpecificationProperty" : {
+      "type" : "object",
+      "required" : [ "id", "value", "valueUnitOfMeasure", "quantity", "quantityUnitOfMeasure" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "WS-EX-MODE"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Excavation Mode"
+        },
+        "value" : {
+          "type" : "string",
+          "example" : "Double Benching"
+        },
+        "valueUnitOfMeasure" : {
+          "type" : "string",
+          "example" : "{Double Benching,Flitching}"
+        },
+        "quantity" : {
+          "type" : "number",
+          "example" : 1.5
+        },
+        "quantityUnitOfMeasure" : {
+          "type" : "string",
+          "example" : "Rate Factor"
+        }
+      }
+    },
+    "MaterialSpecification" : {
+      "type" : "object",
+      "required" : [ "materialUse", "quantity", "unitOfMeasure" ],
+      "properties" : {
+        "materialClassId" : {
+          "type" : "string",
+          "example" : "ER-HG"
+        },
+        "materialDefinitionId" : {
+          "type" : "string",
+          "example" : "HG1"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Excavated Material"
+        },
+        "materialUse" : {
+          "type" : "string",
+          "example" : "Consumed"
+        },
+        "quantity" : {
+          "type" : "number",
+          "example" : 1000
+        },
+        "quantityUnitOfMeasure" : {
+          "type" : "string",
+          "example" : "Tonnes"
+        },
+        "properties" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/MaterialSpecificationProperty"
+          }
+        }
+      }
+    },
+    "MaterialSpecificationProperty" : {
+      "type" : "object",
+      "required" : [ "id", "value", "valueUnitOfMeasure", "quantity", "quantityUnitOfMeasure" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "WS-EX-RATE"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Excavation Rate"
+        },
+        "value" : {
+          "type" : "string",
+          "example" : "Double Benching"
+        },
+        "valueUnitOfMeasure" : {
+          "type" : "string",
+          "example" : "{Double Benching,Flitching}"
+        },
+        "quantity" : {
+          "type" : "number",
+          "example" : 3000
+        },
+        "quantityUnitOfMeasure" : {
+          "type" : "string",
+          "example" : "Tonnes/Hour"
+        }
+      }
+    },
+    "WorkflowSpecificationNode" : {
+      "type" : "object",
+      "required" : [ "id", "workflowSpecificationNodeTypeId" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "EX-TRAVEL"
+        },
+        "workflowSpecificationNodeTypeId" : {
+          "type" : "string",
+          "example" : "PROC"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Travelling to Source"
+        },
+        "workMasterId" : {
+          "type" : "string",
+          "example" : "EX-WM-TRAVEL"
+        },
+        "properties" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/WorkflowSpecificationNodeProperty"
+          }
+        }
+      }
+    },
+    "WorkflowSpecificationNodeProperty" : {
+      "type" : "object",
+      "required" : [ "id", "value", "valueUnitOfMeasure" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "EX-WM-TRAVEL-SPEED"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Speed"
+        },
+        "value" : {
+          "type" : "number",
+          "example" : 60
+        },
+        "valueUnitOfMeasure" : {
+          "type" : "string",
+          "example" : "Kilometres/Hour"
+        }
+      }
+    },
+    "WorkflowSpecificationConnection" : {
+      "type" : "object",
+      "required" : [ "id", "workflowSpecificationConnectionTypeId", "from", "to" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "EX-WM-TRAVEL-FLOW"
+        },
+        "workflowSpecificationConnectionTypeId" : {
+          "type" : "string",
+          "example" : "BPMN-FLOW"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Flows to"
+        },
+        "from" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "EX-WM-TRAVEL"
+          }
+        },
+        "to" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "EX-WM-QUEUE"
+          }
+        },
+        "properties" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/WorkflowSpecificationConnectionProperty"
+          }
+        }
+      }
+    },
+    "WorkflowSpecificationConnectionProperty" : {
+      "type" : "object",
+      "required" : [ "id", "value", "valueUnitOfMeasure" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "EX-WM-TRAVEL-FLOW-REQ"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Requirement for progress"
+        },
+        "value" : {
+          "type" : "string",
+          "example" : "Previous Step Completed"
+        },
+        "valueUnitOfMeasure" : {
+          "type" : "string",
+          "example" : "{Previous Step Completed,Previous Step Started}"
+        }
+      }
+    },
+    "WorkflowSpecificationNodeType" : {
+      "type" : "object",
+      "required" : [ "id", "version" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "PROC"
+        },
+        "version" : {
+          "type" : "number",
+          "example" : 1
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Process"
+        },
+        "properties" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/WorkflowSpecificationNodeTypeProperty"
+          }
+        }
+      }
+    },
+    "WorkflowSpecificationNodeTypeProperty" : {
+      "type" : "object",
+      "required" : [ "id", "description", "value", "valueUnitOfMeasure" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "TRIGGERED"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Can Be Triggered"
+        },
+        "value" : {
+          "type" : "string",
+          "example" : "true"
+        },
+        "valueUnitOfMeasure" : {
+          "type" : "string",
+          "example" : "{true,false}"
+        }
+      }
+    },
+    "WorkflowSpecificationConnectionType" : {
+      "type" : "object",
+      "required" : [ "id", "version", "fromMultiplicity", "toMultiplicity" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "TRIG"
+        },
+        "version" : {
+          "type" : "number",
+          "example" : 1
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Trigger"
+        },
+        "fromMultiplicity" : {
+          "type" : "string",
+          "example" : "0..n"
+        },
+        "toMultiplicity" : {
+          "type" : "string",
+          "example" : "*"
+        },
+        "properties" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/WorkflowSpecificationConnectionTypeProperty"
+          }
+        }
+      }
+    },
+    "WorkflowSpecificationConnectionTypeProperty" : {
+      "type" : "object",
+      "required" : [ "id", "description", "value", "valueUnitOfMeasure" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "TRIGGERED"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Can Be Triggered"
+        },
+        "value" : {
+          "type" : "string",
+          "example" : "true"
+        },
+        "valueUnitOfMeasure" : {
+          "type" : "string",
+          "example" : "{true,false}"
+        }
+      }
+    }
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/BHP7/DefinitionsManagement_WorkDefinitions/1.0.0",
+  "schemes" : [ "https" ]
+}

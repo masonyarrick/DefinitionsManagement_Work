@@ -541,35 +541,7 @@
           }
         },
         "workflow" : {
-          "type" : "object",
-          "description" : "A workflow specification shall be represented as a collection of nodes and connections. Each node is defined by a type definition, and each collection is defined by a type definition. A node may contain a reference to a work master.  Different workflow formats shall be represented as collections of node types and connection types.",
-          "required" : [ "id" ],
-          "properties" : {
-            "id" : {
-              "type" : "string",
-              "description" : "Uniquely identifies the workflow specification definition.",
-              "example" : "WF-EXT"
-            },
-            "description" : {
-              "type" : "string",
-              "description" : "Contains additional information and descriptions of the workflow specification.",
-              "example" : "Workflow Specification for Extraction"
-            },
-            "nodes" : {
-              "type" : "array",
-              "minItems" : 1,
-              "items" : {
-                "$ref" : "#/definitions/WorkflowSpecificationNode"
-              }
-            },
-            "connections" : {
-              "type" : "array",
-              "minItems" : 0,
-              "items" : {
-                "$ref" : "#/definitions/WorkflowSpecificationConnection"
-              }
-            }
-          }
+          "$ref" : "#/definitions/WorkflowSpecification"
         }
       }
     },
@@ -837,6 +809,36 @@
           "type" : "string",
           "description" : "The unit of measure of the associated property value, if applicable.",
           "example" : "Tonnes/Hour"
+        }
+      }
+    },
+    "WorkflowSpecification" : {
+      "description" : "A workflow specification shall be represented as a collection of nodes and connections. Each node is defined by a type definition, and each collection is defined by a type definition. A node may contain a reference to a work master.  Different workflow formats shall be represented as collections of node types and connection types.",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Uniquely identifies the workflow specification definition.",
+          "example" : "WF-EXT"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Contains additional information and descriptions of the workflow specification.",
+          "example" : "Workflow Specification for Extraction"
+        },
+        "nodes" : {
+          "type" : "array",
+          "minItems" : 1,
+          "items" : {
+            "$ref" : "#/definitions/WorkflowSpecificationNode"
+          }
+        },
+        "connections" : {
+          "type" : "array",
+          "minItems" : 0,
+          "items" : {
+            "$ref" : "#/definitions/WorkflowSpecificationConnection"
+          }
         }
       }
     },

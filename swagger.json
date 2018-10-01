@@ -478,18 +478,22 @@
       "properties" : {
         "id" : {
           "type" : "string",
-          "description" : "Uniquely identifies the work definition.",
+          "description" : "A unique identification as the work master ID. Required attribute.",
           "example" : "ER-EXT"
-        },
-        "description" : {
-          "type" : "string",
-          "description" : "Contains additional information and descriptions of the work definition.",
-          "example" : "Eastern Ridge Extraction"
         },
         "version" : {
           "type" : "number",
-          "description" : "An identification of the version of the work definition.  In cases where there are multiple versions of a work definition, then the version attribute shall contain the additional identification information to differentiate each version.",
-          "example" : 1
+          "description" : "An identification of the version of the work master.  In cases where there are multiple versions of a work definition, then the version attribute shall contain the additional identification information to differentiate each version.",
+          "example" : 1.1
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Contains additional information and descriptions of the work master.",
+          "example" : "Eastern Ridge Extraction"
+        },
+        "hierarchyScope" : {
+          "type" : "string",
+          "description" : "Identifies where the exchanged information fits within the role based equipment hierarchy."
         },
         "workType" : {
           "type" : "string",
@@ -1093,6 +1097,6 @@
     }
   },
   "host" : "virtserver.swaggerhub.com",
-  "basePath" : "/BHP7/DefinitionsManagement_WorkDefinitions/1.0.0",
-  "schemes" : [ "https" ]
+  "schemes" : [ "https" ],
+  "basePath" : "/BHP_TECH_SI/DefinitionsManagement_WorkDefinitions/1.0.0"
 }

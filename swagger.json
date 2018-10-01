@@ -493,11 +493,12 @@
         },
         "hierarchyScope" : {
           "type" : "string",
-          "description" : "Identifies where the exchanged information fits within the role based equipment hierarchy."
+          "description" : "Identifies where the exchanged information fits within the role based equipment hierarchy.",
+          "exmaple" : "Crusher 01"
         },
         "workType" : {
           "type" : "string",
-          "description" : "Describes the category of work Required attribute. Defined values are: production, maintenance, quality, inventory, or mixed.  “Mixed” shall be used when the work definition contains resources and routing information required to perform several types of work..",
+          "description" : "Describes the category of work Required attribute. Defined values are: production, maintenance, quality, inventory, or mixed.  “Mixed” shall be used when the work definition contains resources and routing information required to perform several types of work.",
           "example" : "Production"
         },
         "duration" : {
@@ -546,6 +547,12 @@
         },
         "workflow" : {
           "$ref" : "#/definitions/WorkflowSpecification"
+        },
+        "evaluatedProperty" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : null
+          }
         }
       }
     },

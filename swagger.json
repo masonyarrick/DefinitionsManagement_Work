@@ -25,7 +25,7 @@
         "tags" : [ "developers" ],
         "summary" : "gets workflow specification node types.",
         "operationId" : "getWorkflowSpecificationNodeTypes",
-        "description" : "Gets workflows spec node types with specific IDs.\n",
+        "description" : "Gets workflows specification node types with specific IDs.\n",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "in" : "path",
@@ -38,13 +38,13 @@
           "name" : "version",
           "description" : "Work definition version to retrieve.",
           "required" : false,
-          "type" : "number"
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/WorkflowSpecificationNodeType"
+              "$ref" : "#/definitions/workflowSpecificationNodeType"
             }
           },
           "404" : {
@@ -61,7 +61,7 @@
         "parameters" : [ {
           "in" : "path",
           "name" : "id",
-          "description" : "Workflow spec node type ID.",
+          "description" : "Workflow specification node type ID.",
           "required" : true,
           "type" : "string"
         } ],
@@ -77,13 +77,13 @@
       "put" : {
         "tags" : [ "admins" ],
         "summary" : "updates workflow specification node types.",
-        "operationId" : "updateWorkflowSpecificationNodeType",
-        "description" : "Updates workflow spec node types with specific IDs.\n",
+        "operationId" : "updateWorkflowSpecificationNodeTypes",
+        "description" : "Updates workflow specification node types with specific IDs.\n",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "in" : "path",
           "name" : "id",
-          "description" : "Workflow spec node type ID.",
+          "description" : "Workflow specification node type ID.",
           "required" : true,
           "type" : "string"
         } ],
@@ -107,7 +107,7 @@
         "parameters" : [ {
           "in" : "query",
           "name" : "id",
-          "description" : "the unique identifier to look for node types with.",
+          "description" : "the unique identifier to look for work specification node types with.",
           "required" : false,
           "type" : "string"
         }, {
@@ -129,7 +129,7 @@
             "schema" : {
               "type" : "array",
               "items" : {
-                "$ref" : "#/definitions/WorkflowSpecificationNodeType"
+                "$ref" : "#/definitions/workflowSpecificationNodeType"
               }
             }
           },
@@ -140,7 +140,7 @@
       },
       "post" : {
         "tags" : [ "admins" ],
-        "summary" : "creates workflow spec node types",
+        "summary" : "creates workflow specification node types",
         "operationId" : "createWorkflowSpecificationNodeType",
         "description" : "Create new node types for workflow specifications.\n",
         "produces" : [ "application/json" ],
@@ -149,7 +149,7 @@
           "name" : "workflowSpecificationNodeType",
           "required" : true,
           "schema" : {
-            "$ref" : "#/definitions/WorkflowSpecificationNodeType"
+            "$ref" : "#/definitions/workflowSpecificationNodeType"
           }
         } ],
         "responses" : {
@@ -165,28 +165,28 @@
     "/workflowSpecificationConnectionType/{id}" : {
       "get" : {
         "tags" : [ "developers" ],
-        "summary" : "gets workflow spec connection types",
+        "summary" : "gets workflow specification connection types",
         "operationId" : "getWorkflowSpecificationConnectionType",
-        "description" : "Gets workflow spec connection types by unique identifier.\n",
+        "description" : "Gets workflow specification connection types by unique identifier.\n",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "in" : "path",
           "name" : "id",
-          "description" : "Workflow Spec Connection Type ID",
+          "description" : "Workflow Specification Connection Type ID",
           "required" : true,
           "type" : "string"
         }, {
           "in" : "query",
           "name" : "version",
-          "description" : "The version of the spec to retrieve",
+          "description" : "The version of workflow specificadtion connection type ID to retrieve",
           "required" : false,
-          "type" : "number"
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/WorkflowSpecificationConnectionType"
+              "$ref" : "#/definitions/workflowSpecificationConnectionType"
             }
           },
           "404" : {
@@ -196,14 +196,14 @@
       },
       "delete" : {
         "tags" : [ "admins" ],
-        "summary" : "deletes workflow spec connection types",
+        "summary" : "deletes workflow specfication connection types",
         "operationId" : "deleteWorkflowSpecificationConnectionType",
-        "description" : "Deletes workflow spec connection types with specific IDs\n",
+        "description" : "Deletes workflow specification connection types with specific IDs\n",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "in" : "path",
           "name" : "id",
-          "description" : "Workflow Spec Connection Type ID",
+          "description" : "Workflow Specfication Connection Type ID",
           "required" : true,
           "type" : "string"
         } ],
@@ -218,14 +218,14 @@
       },
       "put" : {
         "tags" : [ "admins" ],
-        "summary" : "updates workflow spec connection types",
+        "summary" : "updates workflow specification connection types",
         "operationId" : "updateWorkflowSpecificationConnectionType",
-        "description" : "Updates workflow spec connection types with specific IDs.\n",
+        "description" : "Updates workflow specification connection types with specific IDs.\n",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "in" : "path",
           "name" : "id",
-          "description" : "Workflow Spec Connection Type ID",
+          "description" : "Workflow Specification Connection Type ID",
           "required" : true,
           "type" : "string"
         }, {
@@ -233,7 +233,7 @@
           "name" : "workflowSpecificationConnectionType",
           "description" : "The workflow spec connection type to update.",
           "schema" : {
-            "$ref" : "#/definitions/WorkflowSpecificationConnectionType"
+            "$ref" : "#/definitions/workflowSpecificationConnectionType"
           }
         } ],
         "responses" : {
@@ -249,7 +249,7 @@
     "/workflowSpecificationConnectionType" : {
       "get" : {
         "tags" : [ "developers" ],
-        "summary" : "searches for workflow spec connection types.",
+        "summary" : "searches for workflow specification connection types.",
         "operationId" : "findWorkflowSpecificationConnectionTypes",
         "description" : "Searches for workflow specification connection types with specific properties.\n",
         "produces" : [ "application/json" ],
@@ -278,7 +278,7 @@
             "schema" : {
               "type" : "array",
               "items" : {
-                "$ref" : "#/definitions/WorkflowSpecificationConnectionType"
+                "$ref" : "#/definitions/workflowSpecificationConnectionType"
               }
             }
           },
@@ -289,7 +289,7 @@
       },
       "post" : {
         "tags" : [ "admins" ],
-        "summary" : "creates workflow spec connection types",
+        "summary" : "creates workflow specification connection types",
         "operationId" : "createWorkflowSpecificationConnectionType",
         "description" : "Create new types of connections for workflow specifications\n",
         "produces" : [ "application/json" ],
@@ -299,7 +299,7 @@
           "description" : "The connection type to create",
           "required" : true,
           "schema" : {
-            "$ref" : "#/definitions/WorkflowSpecificationConnectionType"
+            "$ref" : "#/definitions/workflowSpecificationConnectionType"
           }
         } ],
         "responses" : {
@@ -330,13 +330,13 @@
           "name" : "version",
           "description" : "Work definition version to retrieve.",
           "required" : false,
-          "type" : "number"
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "Successful operation",
             "schema" : {
-              "$ref" : "#/definitions/WorkMaster"
+              "$ref" : "#/definitions/workMaster"
             }
           },
           "404" : {
@@ -384,7 +384,7 @@
           "description" : "The new state of the work master.",
           "required" : true,
           "schema" : {
-            "$ref" : "#/definitions/WorkMaster"
+            "$ref" : "#/definitions/workMaster"
           }
         } ],
         "responses" : {
@@ -425,9 +425,9 @@
         }, {
           "in" : "query",
           "name" : "version",
-          "description" : "Work definition version to retrieve.",
+          "description" : "Work master version to retrieve.",
           "required" : false,
-          "type" : "number"
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -435,7 +435,7 @@
             "schema" : {
               "type" : "array",
               "items" : {
-                "$ref" : "#/definitions/WorkMaster"
+                "$ref" : "#/definitions/workMaster"
               }
             }
           },
@@ -456,7 +456,7 @@
           "description" : "The Work Master to create",
           "required" : true,
           "schema" : {
-            "$ref" : "#/definitions/WorkMaster"
+            "$ref" : "#/definitions/workMaster"
           }
         } ],
         "responses" : {
@@ -471,9 +471,9 @@
     }
   },
   "definitions" : {
-    "WorkMaster" : {
+    "workMaster" : {
       "type" : "object",
-      "description" : "The resources and routing required to perform a unit of work without reference to a specific job order shall be defined as a work master.",
+      "description" : "The bill of resources, parameters, and routing (workflow specification) required to perform a unit of work without reference to a specific job order shall be defined as a work master.",
       "required" : [ "id", "version", "workType" ],
       "properties" : {
         "id" : {
@@ -482,7 +482,7 @@
           "example" : "ER-EXT"
         },
         "version" : {
-          "type" : "number",
+          "type" : "string",
           "description" : "An identification of the version of the work master.  In cases where there are multiple versions of a work definition, then the version attribute shall contain the additional identification information to differentiate each version.",
           "example" : 1.1
         },
@@ -514,7 +514,7 @@
         "effectiveFrom" : {
           "type" : "string",
           "description" : "The timestamp that this Work Master is applicable from.",
-          "example" : "201808151000"
+          "example" : "R"
         },
         "effectiveTo" : {
           "type" : "string",
